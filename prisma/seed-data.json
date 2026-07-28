@@ -1,0 +1,230 @@
+{
+  "apps": [
+    {
+      "id": "cms00hajr000dw4443duk760r",
+      "name": "Game Mode",
+      "ownerType": "inhouse",
+      "publisherName": null,
+      "inchargedBy": "HoaiHTT",
+      "platform": "android",
+      "storeUrlIos": "",
+      "storeUrlAndroid": "",
+      "releaseDay": null,
+      "statusCoarse": "new_app",
+      "currentStage": "update",
+      "stageEnteredAt": "2026-07-23T00:00:00.000Z",
+      "note": "",
+      "createdAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-07-27T09:33:55.151Z"
+    },
+    {
+      "id": "cms009hle0007w4443ohp84cm",
+      "name": "Palmistry",
+      "ownerType": "inhouse",
+      "publisherName": null,
+      "inchargedBy": "HoaiHTT",
+      "platform": "android",
+      "storeUrlIos": "",
+      "storeUrlAndroid": "",
+      "releaseDay": null,
+      "statusCoarse": "new_app",
+      "currentStage": "wait_for_design",
+      "stageEnteredAt": "2026-07-28T00:00:00.000Z",
+      "note": "",
+      "createdAt": "2026-07-20T00:00:00.000Z",
+      "updatedAt": "2026-07-28T14:05:57.730Z"
+    },
+    {
+      "id": "cms31728400014aw9y2cvcmv1",
+      "name": "Emoji",
+      "ownerType": "inhouse",
+      "publisherName": null,
+      "inchargedBy": "KhanhLNK",
+      "platform": "android",
+      "storeUrlIos": "",
+      "storeUrlAndroid": "",
+      "releaseDay": null,
+      "statusCoarse": "new_app",
+      "currentStage": "research_app",
+      "stageEnteredAt": "2026-07-22T00:00:00.000Z",
+      "note": "",
+      "createdAt": "2026-07-22T00:00:00.000Z",
+      "updatedAt": "2026-07-27T09:35:23.140Z"
+    },
+    {
+      "id": "cms4repiz0001uk44ao05lz6u",
+      "name": "Emoji Tomo ",
+      "ownerType": "publisher",
+      "publisherName": "",
+      "inchargedBy": "KhanhLNK",
+      "platform": "android",
+      "storeUrlIos": "",
+      "storeUrlAndroid": "",
+      "releaseDay": null,
+      "statusCoarse": "new_app",
+      "currentStage": "on_store",
+      "stageEnteredAt": "2026-07-28T14:36:56.104Z",
+      "note": "",
+      "createdAt": "2026-07-28T14:36:56.104Z",
+      "updatedAt": "2026-07-28T14:36:56.123Z"
+    }
+  ],
+  "stageHistoryEntries": [
+    {
+      "id": "cms00hajw000ew444x8h9fwuh",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "research_app",
+      "enteredAt": "2026-05-25T00:00:00.000Z",
+      "exitedAt": "2026-05-28T00:00:00.000Z",
+      "note": null
+    },
+    {
+      "id": "cms00irt0000fw444qcoo3zt3",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "wait_for_design",
+      "enteredAt": "2026-05-28T00:00:00.000Z",
+      "exitedAt": "2026-06-08T00:00:00.000Z",
+      "note": null
+    },
+    {
+      "id": "cms00jgah000gw444ba6lwwx1",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "wait_for_specs",
+      "enteredAt": "2026-06-08T00:00:00.000Z",
+      "exitedAt": "2026-06-11T00:00:00.000Z",
+      "note": null
+    },
+    {
+      "id": "cms00l4w1000hw444om8m6lnn",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "dev_start",
+      "enteredAt": "2026-06-11T00:00:00.000Z",
+      "exitedAt": "2026-06-25T00:00:00.000Z",
+      "note": null
+    },
+    {
+      "id": "cms00m20q000iw4441t0dl459",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "test_feedback",
+      "enteredAt": "2026-06-25T00:00:00.000Z",
+      "exitedAt": "2026-06-26T00:00:00.000Z",
+      "note": null
+    },
+    {
+      "id": "cms00mw82000jw4441bge8kha",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "on_store",
+      "enteredAt": "2026-06-26T00:00:00.000Z",
+      "exitedAt": "2026-07-06T00:00:00.000Z",
+      "note": null
+    },
+    {
+      "id": "cms00oder000kw444p29omtou",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "on_store",
+      "enteredAt": "2026-07-06T00:00:00.000Z",
+      "exitedAt": "2026-07-08T00:00:00.000Z",
+      "note": null
+    },
+    {
+      "id": "cms00s7d7000lw4443j5yvx96",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "bu_testing_monet_bidding",
+      "enteredAt": "2026-07-08T00:00:00.000Z",
+      "exitedAt": "2026-07-08T00:00:00.000Z",
+      "note": ""
+    },
+    {
+      "id": "cms00s7dr000mw44430vsr31w",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "wait_for_check_metrics",
+      "enteredAt": "2026-07-08T00:00:00.000Z",
+      "exitedAt": "2026-07-22T00:00:00.000Z",
+      "note": ""
+    },
+    {
+      "id": "cms009hle0008w444bphcgjpj",
+      "appId": "cms009hle0007w4443ohp84cm",
+      "stage": "research_app",
+      "enteredAt": "2026-07-20T00:00:00.000Z",
+      "exitedAt": "2026-07-28T00:00:00.000Z",
+      "note": null
+    },
+    {
+      "id": "cms00svza000nw444nougeuha",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "wait_for_load_2_id",
+      "enteredAt": "2026-07-22T00:00:00.000Z",
+      "exitedAt": "2026-07-22T00:00:00.000Z",
+      "note": ""
+    },
+    {
+      "id": "cms0172p9000ow444hkjmtinw",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "check_after_testing",
+      "enteredAt": "2026-07-22T00:00:00.000Z",
+      "exitedAt": "2026-07-23T00:00:00.000Z",
+      "note": null
+    },
+    {
+      "id": "cms31728600024aw9khq6cper",
+      "appId": "cms31728400014aw9y2cvcmv1",
+      "stage": "research_app",
+      "enteredAt": "2026-07-22T00:00:00.000Z",
+      "exitedAt": null,
+      "note": null
+    },
+    {
+      "id": "cms3156bz00004aw9dcu2fa3x",
+      "appId": "cms00hajr000dw4443duk760r",
+      "stage": "update",
+      "enteredAt": "2026-07-23T00:00:00.000Z",
+      "exitedAt": null,
+      "note": null
+    },
+    {
+      "id": "cms4qavkx0006up44bgesd9aq",
+      "appId": "cms009hle0007w4443ohp84cm",
+      "stage": "wait_for_design",
+      "enteredAt": "2026-07-28T00:00:00.000Z",
+      "exitedAt": null,
+      "note": null
+    },
+    {
+      "id": "cms4repj00002uk44566d51wq",
+      "appId": "cms4repiz0001uk44ao05lz6u",
+      "stage": "on_store",
+      "enteredAt": "2026-07-28T14:36:56.104Z",
+      "exitedAt": null,
+      "note": null
+    }
+  ],
+  "tasks": [
+    {
+      "id": "cms4qavl30007up44lmvle712",
+      "description": "Request Design Palmistry",
+      "priorityInLifecycle": 0,
+      "priorityInApp": 0,
+      "status": "done",
+      "quadrant": "do_now",
+      "completedAt": "2026-07-28T14:26:59.580Z",
+      "isDefault": true,
+      "referenceToLifecycleId": "cms4qavkx0006up44bgesd9aq",
+      "createdAt": "2026-07-28T14:05:57.735Z",
+      "updatedAt": "2026-07-28T14:30:15.430Z"
+    },
+    {
+      "id": "cms4rd18u0000uk44s3jv3alp",
+      "description": "xvxvxv",
+      "priorityInLifecycle": 1,
+      "priorityInApp": 0,
+      "status": "todo",
+      "quadrant": "eliminate",
+      "completedAt": null,
+      "isDefault": false,
+      "referenceToLifecycleId": "cms4qavkx0006up44bgesd9aq",
+      "createdAt": "2026-07-28T14:35:37.998Z",
+      "updatedAt": "2026-07-28T14:35:40.668Z"
+    }
+  ]
+}
