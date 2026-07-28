@@ -1,0 +1,114 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum OwnerType {
+  inhouse
+  publisher
+}
+
+enum Platform {
+  ios
+  android
+  both
+}
+
+enum StatusCoarse {
+  new_app
+  scaled
+}
+
+enum Stage {
+  research_app
+  wait_for_design
+  wait_for_specs
+  dev_start
+  test_feedback
+  on_store
+  bu_testing_monet_bidding
+  wait_for_check_metrics
+  wait_for_load_2_id
+  check_after_testing
+  update
+  set_waterfall_status
+  scaled_app
+  scaled_brief_update
+  scaled_wait_for_design
+  scaled_wait_for_specs
+  scaled_dev_start
+  scaled_test_apk
+  scaled_check_version
+}
+
+model App {
+  id              String       @id @default(cuid())
+  name            String
+  ownerType       OwnerType
+  publisherName   String?
+  inchargedBy     String
+  platform        Platform
+  storeUrlIos     String?
+  storeUrlAndroid String?
+  releaseDay      DateTime?
+  statusCoarse    StatusCoarse @default(new_app)
+  currentStage    Stage
+  stageEnteredAt  DateTime     @default(now())
+  note            String?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  stageHistory StageHistoryEntry[]
+}
+
+model StageHistoryEntry {
+  id        String    @id @default(cuid())
+  appId     String
+  app       App       @relation(fields: [appId], references: [id], onDelete: Cascade)
+  stage     Stage
+  enteredAt DateTime
+  exitedAt  DateTime?
+  note      String?
+
+  tasks Task[]
+
+  @@index([appId])
+}
+
+enum TaskStatus {
+  todo
+  done
+}
+
+// The 4 quadrants of the Eisenhower time-management matrix. Null means the
+// task is still unsorted, sitting in the inbox list on the Tasks page.
+enum TaskQuadrant {
+  do_now
+  schedule
+  delegate
+  eliminate
+}
+
+model Task {
+  id                     String             @id @default(cuid())
+  description            String
+  priorityInLifecycle    Int
+  priorityInApp          Int
+  status                 TaskStatus         @default(todo)
+  quadrant               TaskQuadrant?
+  completedAt            DateTime?
+  isDefault              Boolean            @default(false)
+  referenceToLifecycleId String?
+  lifecycle              StageHistoryEntry? @relation(fields: [referenceToLifecycleId], references: [id], onDelete: Cascade)
+  createdAt              DateTime           @default(now())
+  updatedAt              DateTime           @updatedAt
+
+  @@index([referenceToLifecycleId])
+}
