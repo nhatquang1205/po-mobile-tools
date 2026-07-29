@@ -8,8 +8,7 @@
 // order) before re-inserting the snapshot.
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
-import { PrismaClient } from "../src/generated/prisma/client";
+import { prisma } from "../src/lib/prisma";
 
 interface SeedData {
   apps: Record<string, unknown>[];
@@ -40,9 +39,6 @@ function reviveDates(row: Record<string, unknown>): Record<string, unknown> {
 }
 
 async function main() {
-  const adapter = new PrismaBetterSqlite3({ url: "file:./dev.db" });
-  const prisma = new PrismaClient({ adapter });
-
   const dataPath = path.join(__dirname, "seed-data.json");
   const data: SeedData = JSON.parse(readFileSync(dataPath, "utf-8"));
 
