@@ -8,6 +8,8 @@ import { TimelineRow } from "@/components/research/TimelineRow";
 import { TimelineHeader } from "@/components/research/TimelineHeader";
 import { SegmentNoteModal } from "@/components/research/SegmentNoteModal";
 import { UpdateStageButton } from "@/components/research/UpdateStageButton";
+import { Modal } from "@/components/Modal";
+import { AppForm, AppFormValues, EMPTY_APP_FORM } from "@/components/apps/AppForm";
 import { enumerateBusinessDays } from "@/lib/format";
 
 // Only the current update cycle's entries — everything after the most recent
@@ -33,6 +35,7 @@ export default function ScaledAppPage() {
   const [toDate, setToDate] = useState("");
   const [activeEntry, setActiveEntry] = useState<StageHistoryEntryDto | null>(null);
   const [historyAppId, setHistoryAppId] = useState("");
+  const [creating, setCreating] = useState(false);
 
   const load = async () => {
     const params = new URLSearchParams({ statusCoarse: "scaled" });
@@ -41,6 +44,22 @@ export default function ScaledAppPage() {
     if (stage) params.set("currentStage", stage);
     const res = await fetch(`/api/apps?${params.toString()}`);
     setApps(await res.json());
+  };
+
+  const handleCreate = async (values: AppFormValues) => {
+    const res = await fetch("/api/apps", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...values,
+        publisherName: values.ownerType === "publisher" ? values.publisherName : null,
+        releaseDay: values.releaseDay || null,
+        startInScaled: true,
+      }),
+    });
+    if (!res.ok) throw new Error((await res.json()).error ?? "Failed to create app");
+    setCreating(false);
+    load();
   };
 
   useEffect(() => {
@@ -87,7 +106,15 @@ export default function ScaledAppPage() {
 
   return (
     <div>
-      <h1 className="mb-4 text-xl font-semibold">Scaled Apps</h1>
+      <div className="mb-4 flex items-center justify-between">
+        <h1 className="text-xl font-semibold">Scaled Apps</h1>
+        <button
+          onClick={() => setCreating(true)}
+          className="rounded bg-gray-900 px-4 py-2 text-sm text-white hover:bg-gray-700"
+        >
+          + New Scaled App
+        </button>
+      </div>
 
       <div className="mb-4 flex gap-2">
         <button
@@ -256,6 +283,17 @@ export default function ScaledAppPage() {
 
       {activeEntry && (
         <SegmentNoteModal entry={activeEntry} onClose={() => setActiveEntry(null)} onSaved={load} />
+      )}
+
+      {creating && (
+        <Modal title="New Scaled App" onClose={() => setCreating(false)}>
+          <AppForm
+            initialValues={EMPTY_APP_FORM}
+            submitLabel="Create app"
+            onSubmit={handleCreate}
+            onCancel={() => setCreating(false)}
+          />
+        </Modal>
       )}
     </div>
   );

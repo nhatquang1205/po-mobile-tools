@@ -123,12 +123,15 @@ export interface CreateAppInput {
   releaseDay?: Date | null;
   createdAt?: Date | null;
   note?: string | null;
+  // Skips the Research/Setup pipeline entirely and creates the app already idle
+  // at the Scaled Apps stage, same as if it had completed the full lifecycle.
+  startInScaled?: boolean;
 }
 
 export async function createApp(input: CreateAppInput) {
   // Allows backdating historical apps: the initial stage entry starts on the same date.
   const now = input.createdAt ?? new Date();
-  const stage = startingStage(input.ownerType);
+  const stage = input.startInScaled ? "scaled_app" : startingStage(input.ownerType);
 
   const app = await prisma.app.create({
     data: {
@@ -144,7 +147,7 @@ export async function createApp(input: CreateAppInput) {
       currentStage: stage,
       stageEnteredAt: now,
       createdAt: now,
-      statusCoarse: "new_app",
+      statusCoarse: input.startInScaled ? "scaled" : "new_app",
       stageHistory: { create: { stage, enteredAt: now } },
     },
     include: withHistory,

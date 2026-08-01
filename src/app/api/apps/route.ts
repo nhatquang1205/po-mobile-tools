@@ -40,6 +40,7 @@ export async function POST(request: NextRequest) {
     releaseDay: body.releaseDay ? new Date(body.releaseDay) : null,
     createdAt: body.createdAt ? new Date(body.createdAt) : null,
     note: body.note ?? null,
+    startInScaled: body.startInScaled === true,
   });
 
   return NextResponse.json(app, { status: 201 });
